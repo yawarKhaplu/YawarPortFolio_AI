@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from 'next/image';
 
-const roles = ["Full-Stack Developer", "UI/UX Enthusiast", "Problem Solver"];
+const roles = ["Full-Stack Developer", "Python Developer", "Innovative Tech Explorer","AI-Driven Problem Solver"];
 
 export function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
