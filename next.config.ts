@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     reactCompiler: false,
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
   typescript: {
     ignoreBuildErrors: true,
