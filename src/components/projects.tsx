@@ -11,31 +11,31 @@ import Link from 'next/link';
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce site with Next.js, Stripe, and Sanity.',
+    title: 'Agorz Genie – Text-to-SQL System',
+    description: 'A real-time Text-to-SQL engine to query MS SQL Server databases using natural language, powered by the Gemini LLM and a RAG pipeline.',
     image: 'https://picsum.photos/600/400?random=1',
-    tags: ['Next.js', 'Stripe', 'Sanity', 'Tailwind'],
+    tags: ['Angular', 'FastAPI', 'Gemini', 'RAG', 'SQLAlchemy'],
     liveUrl: '#',
     githubUrl: '#',
-    dataAiHint: 'online store'
+    dataAiHint: 'database query interface'
+  },
+  {
+    title: 'Face Recognition Attendance System',
+    description: 'An AI-driven system that automates daily attendance tracking by capturing and verifying employee faces in real-time, eliminating manual errors.',
+    image: 'https://picsum.photos/600/400?random=2',
+    tags: ['Python', 'OpenCV', 'Face Recognition', 'AI'],
+    liveUrl: '#',
+    githubUrl: '#',
+    dataAiHint: 'facial recognition'
   },
   {
     title: 'Portfolio Website',
     description: 'A personal portfolio to showcase my skills and projects.',
-    image: 'https://picsum.photos/600/400?random=2',
+    image: 'https://picsum.photos/600/400?random=3',
     tags: ['React', 'Framer Motion', 'GenAI'],
     liveUrl: '#',
     githubUrl: '#',
     dataAiHint: 'personal website'
-  },
-  {
-    title: 'Task Management App',
-    description: 'A Kanban-style task manager with drag-and-drop functionality.',
-    image: 'https://picsum.photos/600/400?random=3',
-    tags: ['React', 'TypeScript', 'dnd-kit'],
-    liveUrl: '#',
-    githubUrl: '#',
-    dataAiHint: 'kanban board'
   },
   {
     title: 'AI-Powered Chatbot',
