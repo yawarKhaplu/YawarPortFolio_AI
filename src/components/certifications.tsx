@@ -1,26 +1,51 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Award, BookOpenCheck, NotebookPen } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Award } from 'lucide-react';
 
 const certifications = [
   {
     title: 'Introduction to Data Science',
     issuer: 'Cisco',
-    icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
+    date: '2024',
   },
   {
-    title: 'Numpy For Data Science: Real Time Exercises',
+    title: 'Numpy For Data Science',
     issuer: 'Udemy',
-    icon: <Award className="w-10 h-10 text-primary" />,
+    date: '2024',
   },
   {
     title: 'Advanced Python Course',
-    issuer: 'NAVTECH at Essence ware Technologies, Rawalpindi',
-    icon: <NotebookPen className="w-10 h-10 text-primary" />,
+    issuer: 'NAVTECH',
+    date: '2024',
+  },
+  {
+    title: 'Information Technology Specialist: Python',
+    issuer: 'Certiport / Pearson',
+    date: 'June 25, 2024',
+  },
+  {
+    title: 'Python 101 for Data Science',
+    issuer: 'IBM / Cognitive Class',
+    date: '2024',
   },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
 
 export function Certifications() {
   return (
@@ -30,21 +55,43 @@ export function Certifications() {
           <h2 className="text-3xl md:text-4xl font-bold">Certifications & Credentials</h2>
           <p className="text-lg text-muted-foreground mt-2">My professional learning and achievements.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certifications.map((cert, index) => (
-            <Card key={index} className="flex flex-col items-center text-center p-6 transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
-              <CardHeader className="p-0 mb-4">
-                <div className="p-4 bg-primary/10 rounded-full">
-                  {cert.icon}
-                </div>
-              </CardHeader>
-              <CardContent className="p-0">
-                <CardTitle className="mb-2 text-lg font-semibold">{cert.title}</CardTitle>
-                <p className="text-muted-foreground text-sm">{cert.issuer}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: false,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {certifications.map((cert, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                 <motion.div
+                  className="h-full"
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  custom={index}
+                >
+                  <Card className="h-full flex flex-col items-start text-left p-6 transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
+                    <CardHeader className="p-0 mb-4 flex-row items-center gap-4">
+                      <div className="p-3 bg-primary/10 rounded-full">
+                        <Award className="w-6 h-6 text-primary" />
+                      </div>
+                      <CardTitle className="text-lg font-semibold">{cert.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0 flex-grow">
+                      <p className="text-muted-foreground text-sm font-medium">{cert.issuer}</p>
+                      <p className="text-muted-foreground text-xs mt-1">{cert.date}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex -left-4" />
+          <CarouselNext className="hidden md:flex -right-4" />
+        </Carousel>
       </div>
     </section>
   );
