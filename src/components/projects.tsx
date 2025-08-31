@@ -12,7 +12,7 @@ import Link from 'next/link';
 const projects = [
   {
     title: 'Agorz Genie – Text-to-SQL System',
-    description: 'A real-time Text-to-SQL engine to query MS SQL Server databases using natural language, powered by the Gemini LLM and a RAG pipeline.',
+    description: 'I designed and built Agorz Genie from scratch, a real-time Text-to-SQL engine that lets users query MS SQL Server databases using natural language. It integrates an Angular frontend with a FastAPI/Flask backend, powered by the Gemini LLM API. To ensure accuracy, I implemented a RAG pipeline with Haystack (BM25Retriever) that injects schema, SQL rules, and contextual examples into prompts. The system also includes voice-to-text input, Excel logging (via pandas & openpyxl), and optimized performance with SQLAlchemy connection pooling and response caching.',
     image: 'https://picsum.photos/600/400?random=1',
     tags: ['Angular', 'FastAPI', 'Gemini', 'RAG', 'SQLAlchemy'],
     liveUrl: '#',
@@ -21,7 +21,7 @@ const projects = [
   },
   {
     title: 'Face Recognition Attendance System',
-    description: 'An AI-driven system that automates daily attendance tracking by capturing and verifying employee faces in real-time, eliminating manual errors.',
+    description: 'I developed an AI-driven attendance system from scratch using face recognition technology. The solution automates daily attendance tracking by capturing and verifying employee faces in real-time. It eliminates manual errors, speeds up check-ins, and securely stores attendance data for reporting. The system was tailored to our office workflow, ensuring reliability, accuracy, and scalability.',
     image: 'https://picsum.photos/600/400?random=2',
     tags: ['Python', 'OpenCV', 'Face Recognition', 'AI'],
     liveUrl: '#',
@@ -82,14 +82,14 @@ export function Projects() {
                     </CardHeader>
                     <CardContent className="p-6 flex-grow">
                         <CardTitle className="mb-2">{project.title}</CardTitle>
-                        <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
+                        <p className="text-muted-foreground mb-4 text-sm line-clamp-3">{project.description}</p>
                         <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                             <Badge key={tag} variant="outline">{tag}</Badge>
                         ))}
                         </div>
                     </CardContent>
-                    <CardFooter className="p-6 pt-0">
+                    <CardFooter className="p-6 pt-0 mt-auto">
                        <div className="flex w-full justify-between items-center">
                             <div className="flex gap-2">
                                 <Button asChild variant="ghost" size="icon" aria-label="GitHub repository">
