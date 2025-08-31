@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Youtube, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -28,6 +28,12 @@ export default function Home() {
             </Button>
             <Button asChild variant="ghost" size="icon" aria-label="LinkedIn profile">
               <Link href="#" target="_blank" rel="noopener noreferrer"><Linkedin /></Link>
+            </Button>
+            <Button asChild variant="ghost" size="icon" aria-label="YouTube channel">
+              <Link href="#" target="_blank" rel="noopener noreferrer"><Youtube /></Link>
+            </Button>
+            <Button asChild variant="ghost" size="icon" aria-label="Instagram profile">
+              <Link href="#" target="_blank" rel="noopener noreferrer"><Instagram /></Link>
             </Button>
           </div>
         </div>
