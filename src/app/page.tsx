@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Skills } from "@/components/skills";
+import { Certifications } from "@/components/certifications";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
 import { Github, Linkedin, Youtube, Instagram } from "lucide-react";
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <Skills />
+        <Certifications />
         <Projects />
         <Contact />
       </main>

@@ -22,6 +22,7 @@ export function Header() {
 
   const navLinks = [
     { href: "#skills", label: "Skills" },
+    { href: "#certifications", label: "Certifications" },
     { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
   ];
