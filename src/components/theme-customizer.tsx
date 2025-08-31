@@ -5,7 +5,6 @@ import { Paintbrush } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Input } from '@/components/ui/input';
-import { suggestThemeColors } from '@/ai/flows/theme-customization-suggestions';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from './ui/skeleton';
 import { hexToHsl } from '@/lib/utils';
@@ -17,23 +16,11 @@ export function ThemeCustomizer() {
   const { toast } = useToast();
 
   const handleSuggestion = async () => {
-    setIsLoading(true);
-    setSuggestions([]);
-    try {
-      const result = await suggestThemeColors({ baseColor });
-      if (result.suggestedPalette) {
-        setSuggestions(result.suggestedPalette);
-      }
-    } catch (error) {
-      console.error('AI suggestion failed:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to get theme suggestions. Please try again.',
+    toast({
+        title: 'Feature Disabled',
+        description: 'AI theme suggestions are not available in static export mode.',
         variant: 'destructive',
       });
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   const applyColor = (color: string) => {
@@ -71,7 +58,7 @@ export function ThemeCustomizer() {
                 onChange={(e) => setBaseColor(e.target.value)}
               />
             </div>
-            <Button onClick={handleSuggestion} disabled={isLoading}>
+            <Button onClick={handleSuggestion} disabled={true}>
               {isLoading ? 'Generating...' : 'Suggest Palette'}
             </Button>
           </div>

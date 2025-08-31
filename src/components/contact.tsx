@@ -27,13 +27,6 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-async function submitForm(data: FormValues): Promise<{ success: boolean }> {
-    console.log("Form data submitted:", data);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    return { success: true };
-}
-
-
 export function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,25 +45,21 @@ export function Contact() {
     setIsSubmitting(true);
     setIsSubmitted(false);
 
-    const result = await submitForm(values);
-
+    // Since we are doing a static export, we can't have server-side logic.
+    // This is a placeholder for what would be an API call.
+    // You could replace this with a service like Formspree or a simple mailto link.
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    console.log("Form data submitted (static):", values);
+    
     setIsSubmitting(false);
-
-    if (result.success) {
-      setIsSubmitted(true);
-      toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      form.reset();
-      setTimeout(() => setIsSubmitted(false), 2000);
-    } else {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    }
+    setIsSubmitted(true);
+    toast({
+      title: "Message Sent!",
+      description: "Thanks for reaching out. I'll get back to you soon.",
+    });
+    form.reset();
+    setTimeout(() => setIsSubmitted(false), 2000);
   }
 
   return (
