@@ -58,7 +58,7 @@ export function Hero() {
                     <span className="animate-pulse">|</span>
                 </h2>
                 <p className="max-w-xl mx-auto text-lg text-foreground/80 mb-10">
-                    I build beautiful, responsive, and performant web applications. Passionate about creating seamless user experiences from concept to deployment.
+                I build reliable, efficient solutions with Python — from dynamic web applications to AI-powered systems. I love using technology to solve real-world problems that matter.
                 </p>
                 <div className="flex justify-center gap-4">
                     <Button asChild size="lg">

@@ -4,17 +4,20 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { Code, Database, Wind, Layers, Bot, BrainCircuit } from 'lucide-react';
+import { Code, Database, Wind, Layers, Bot, BrainCircuit, Terminal, GitBranch, Server, Cog } from 'lucide-react';
 
 const skills = [
-  { name: 'React', level: 95, icon: <Code className="w-8 h-8" />, category: 'Frontend' },
-  { name: 'Next.js', level: 90, icon: <Code className="w-8 h-8" />, category: 'Frontend' },
-  { name: 'TypeScript', level: 90, icon: <BrainCircuit className="w-8 h-8" />, category: 'Language' },
-  { name: 'Node.js', level: 85, icon: <Database className="w-8 h-8" />, category: 'Backend' },
+  { name: 'Python', level: 95, icon: <Code className="w-8 h-8" />, category: 'Language' },
+  { name: 'Flask', level: 85, icon: <Server className="w-8 h-8" />, category: 'Backend' },
+  { name: 'Django', level: 80, icon: <Server className="w-8 h-8" />, category: 'Backend' },
+  { name: 'React', level: 90, icon: <Code className="w-8 h-8" />, category: 'Frontend' },
   { name: 'Tailwind CSS', level: 98, icon: <Wind className="w-8 h-8" />, category: 'Styling' },
-  { name: 'Framer Motion', level: 75, icon: <Layers className="w-8 h-8" />, category: 'Animation' },
-  { name: 'GenAI', level: 80, icon: <Bot className="w-8 h-8" />, category: 'AI/ML' },
-  { name: 'SQL', level: 80, icon: <Database className="w-8 h-8" />, category: 'Database' },
+  { name: 'TensorFlow', level: 75, icon: <Bot className="w-8 h-8" />, category: 'AI/ML' },
+  { name: 'Keras', level: 70, icon: <BrainCircuit className="w-8 h-8" />, category: 'AI/ML' },
+  { name: 'Scikit-learn', level: 85, icon: <Bot className="w-8 h-8" />, category: 'AI/ML' },
+  { name: 'SQL', level: 88, icon: <Database className="w-8 h-8" />, category: 'Database' },
+  { name: 'GitHub', level: 95, icon: <GitBranch className="w-8 h-8" />, category: 'Tools' },
+  { name: 'Docker', level: 80, icon: <Cog className="w-8 h-8" />, category: 'Deployment' },
 ];
 
 function SkillCard({ name, level, icon, category }: { name: string, level: number, icon: React.ReactNode, category: string }) {
