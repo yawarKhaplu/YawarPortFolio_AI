@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from './ui/skeleton';
 import { hexToHsl } from '@/lib/utils';
+import { suggestThemeColors } from '@/ai/flows/theme-customization-suggestions';
 
 export function ThemeCustomizer() {
   const [baseColor, setBaseColor] = useState('#38BDF8');
@@ -41,7 +42,7 @@ export function ThemeCustomizer() {
           <div className="space-y-2">
             <h4 className="font-medium leading-none">Customize</h4>
             <p className="text-sm text-muted-foreground">
-              Pick a base color to get AI-powered palette suggestions.
+              Pick a base color to change the theme.
             </p>
           </div>
           <div className="grid gap-2">
@@ -49,17 +50,23 @@ export function ThemeCustomizer() {
               <Input
                 type="color"
                 value={baseColor}
-                onChange={(e) => setBaseColor(e.target.value)}
+                onChange={(e) => {
+                  setBaseColor(e.target.value);
+                  applyColor(e.target.value);
+                }}
                 className="w-12 h-10 p-1"
               />
               <Input
                 type="text"
                 value={baseColor}
-                onChange={(e) => setBaseColor(e.target.value)}
+                onChange={(e) => {
+                  setBaseColor(e.target.value);
+                  applyColor(e.target.value);
+                }}
               />
             </div>
             <Button onClick={handleSuggestion} disabled={true}>
-              {isLoading ? 'Generating...' : 'Suggest Palette'}
+              {isLoading ? 'Generating...' : 'Suggest Palette (AI)'}
             </Button>
           </div>
           {isLoading && (
