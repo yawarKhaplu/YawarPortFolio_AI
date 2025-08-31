@@ -74,7 +74,7 @@ export function Projects() {
           <CarouselContent>
             {projects.map((project, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
+                <div className="p-1 h-full">
                   <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
                     <CardHeader className="p-0">
                        <div className="aspect-video relative">
@@ -115,7 +115,7 @@ export function Projects() {
                                   Read More
                                 </Button>
                               </DialogTrigger>
-                              <DialogContent className="sm:max-w-[625px]">
+                              <DialogContent className="max-w-md md:max-w-2xl max-h-[90vh] overflow-y-auto">
                                 <DialogHeader>
                                   <div className="aspect-video relative rounded-lg overflow-hidden mb-4">
                                       <Image
@@ -140,12 +140,12 @@ export function Projects() {
                                 <div className="flex gap-2 pt-4">
                                   <Button asChild>
                                       <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                        <ExternalLink className="mr-2" /> View Live
+                                        <ExternalLink className="mr-2 h-4 w-4" /> View Live
                                       </Link>
                                   </Button>
                                    <Button asChild variant="secondary">
                                       <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                        <Github className="mr-2" /> GitHub
+                                        <Github className="mr-2 h-4 w-4" /> GitHub
                                       </Link>
                                   </Button>
                                 </div>
