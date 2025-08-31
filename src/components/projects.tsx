@@ -6,8 +6,16 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
 import { Button } from './ui/button';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Eye } from 'lucide-react';
 import Link from 'next/link';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const projects = [
   {
@@ -30,18 +38,18 @@ const projects = [
   },
   {
     title: 'Portfolio Website',
-    description: 'A personal portfolio to showcase my skills and projects.',
+    description: 'A personal portfolio to showcase my skills and projects, built with Next.js, Tailwind CSS, and ShadCN UI for a modern and responsive design. It features smooth animations and a theme customizer, and is statically exported for fast performance on Firebase Hosting.',
     image: 'https://picsum.photos/600/400?random=3',
-    tags: ['React', 'Framer Motion', 'GenAI'],
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'ShadCN UI'],
     liveUrl: '#',
     githubUrl: '#',
     dataAiHint: 'personal website'
   },
   {
     title: 'AI-Powered Chatbot',
-    description: 'A customer service chatbot using Google\'s Gemini model.',
+    description: 'A customer service chatbot developed using Google\'s Gemini model via Genkit. The project is integrated with Firebase for backend services, providing a scalable and intelligent conversational AI solution for user inquiries.',
     image: 'https://picsum.photos/600/400?random=4',
-    tags: ['Next.js', 'Genkit', 'Firebase'],
+    tags: ['Next.js', 'Genkit', 'Firebase', 'Gemini'],
     liveUrl: '#',
     githubUrl: '#',
     dataAiHint: 'chatbot interface'
@@ -99,9 +107,50 @@ export function Projects() {
                                     <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer"><ExternalLink /></Link>
                                 </Button>
                             </div>
-                            <Button asChild>
-                                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">View Live</Link>
-                            </Button>
+
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button variant="outline">
+                                  <Eye className="mr-2 h-4 w-4" />
+                                  Read More
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="sm:max-w-[625px]">
+                                <DialogHeader>
+                                  <div className="aspect-video relative rounded-lg overflow-hidden mb-4">
+                                      <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        width={625}
+                                        height={350}
+                                        className="object-cover"
+                                        data-ai-hint={project.dataAiHint}
+                                      />
+                                  </div>
+                                  <DialogTitle className="text-2xl">{project.title}</DialogTitle>
+                                  <div className="flex flex-wrap gap-2 pt-2">
+                                    {project.tags.map((tag) => (
+                                        <Badge key={tag} variant="secondary">{tag}</Badge>
+                                    ))}
+                                  </div>
+                                </DialogHeader>
+                                <DialogDescription className="text-base text-foreground pt-2">
+                                  {project.description}
+                                </DialogDescription>
+                                <div className="flex gap-2 pt-4">
+                                  <Button asChild>
+                                      <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                        <ExternalLink className="mr-2" /> View Live
+                                      </Link>
+                                  </Button>
+                                   <Button asChild variant="secondary">
+                                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                        <Github className="mr-2" /> GitHub
+                                      </Link>
+                                  </Button>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
                        </div>
                     </CardFooter>
                   </Card>
